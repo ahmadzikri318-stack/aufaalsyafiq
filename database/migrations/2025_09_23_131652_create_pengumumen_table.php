@@ -12,7 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('pengumumen', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements(column: 'id');
+            $table->string(column: 'judul');
+            $table->text(column: 'isi');  
+            $table->date(column: 'tanggal_publikasi');
+            $table->boolean(column: 'status_publikasi')->default(value: false);
             $table->timestamps();
         });
     }
